@@ -16,10 +16,10 @@ run using `g++ main.cpp black.cpp -o main ; if ($?) { .\main }` in the terminal
 
 ### black.cpp — Black-Scholes formula:
 
-- d1 = (ln(S/K) + (r + σ²/2)·T) / (σ√T)
-- d2 = d1 − σ√T
-- Call PV = S·N(d1) − K·e^(−rT)·N(d2), scaled by notional
-- Put PV = K·e^(−rT)·N(−d2) − S·N(−d1), scaled by notional
+- d1 = $(ln(\frac{S}{K}) + (r + \frac{\sigma^2}{2})·T) / (\sigma \sqrt{T})$
+- d2 = d1 − $\sigma \sqrt{T}$
+- Call PV = $S·N(d1) − K·e^{(−rT)}·N(d2)$, scaled by notional
+- Put PV = $K·e^{(−rT)}·N(−d2) − S·N(−d1)$, scaled by notional
 - normalCDF uses std::erfc (C++ standard, no external dependency)
 - Throws std::invalid_argument for non-positive spot/strike/vol/expiry
 
